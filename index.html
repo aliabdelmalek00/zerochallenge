@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker's Den</title>
+    <title>Zero day Ctf</title>
     <style>
         body {
             background-color: #000;
@@ -13,6 +13,27 @@
             padding: 0;
             overflow: hidden;
         }
+
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+
+        .loaded {
+            opacity: 0;
+            pointer-events: none;
+        }
+
         .container {
             display: flex;
             flex-direction: column;
@@ -20,25 +41,32 @@
             justify-content: center;
             height: 100vh;
         }
+
         .logo {
             width: 150px; 
             height: 150px; 
-            background-image: url('./zeroday.jpg'); 
-            background-size: cover;
+            background-image: url('./front.png'); 
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
             border: 2px solid #F00;
             border-radius: 50%;
             margin-bottom: 20px;
+            margin-top: 20px;
         }
+
         .text {
             font-size: 24px;
             text-align: center;
             text-transform: uppercase;
         }
+
         .text::before {
             content: '>';
             animation: blink-caret 0.75s infinite;
             display: inline-block;
         }
+
         @keyframes blink-caret {
             50% {
                 opacity: 0;
@@ -47,121 +75,17 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="loading-screen"></div>
+    <div class="container loaded">
+        <div class="text">Welcome to Zeroday Website !</div>
         <div class="logo"></div>
         <div class="text">Can you find our Admin's pass</div>
     </div>
+    <script>
+        window.addEventListener('load', function () {
+            document.querySelector('.loading-screen').style.opacity = '0';
+            document.querySelector('.container.loaded').style.opacity = '1';
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* my password : zero{ZERODAY_Adm1n}  in case i forgot*/
